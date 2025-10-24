@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="catalog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="statistics"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="statistics">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="numberCitations"/>
+        <xs:element minOccurs="0" ref="numberConferences"/>
+        <xs:element minOccurs="0" ref="numberResearchers"/>
+        <xs:element minOccurs="0" ref="numberJournals"/>
+        <xs:element minOccurs="0" ref="numberSources"/>
+        <xs:element minOccurs="0" ref="numberBooks"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="title_stats"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="numberCitations">
+  	<xs:simpleType>
+      <xs:restriction base="xs:integer">
+        <xs:minInclusive value="0" />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="numberConferences">
+  	<xs:simpleType>
+      <xs:restriction base="xs:integer">
+        <xs:minInclusive value="0" />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="numberResearchers">
+  	<xs:simpleType>
+      <xs:restriction base="xs:integer">
+        <xs:minInclusive value="0" />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="numberJournals">
+  	<xs:simpleType>
+      <xs:restriction base="xs:integer">
+        <xs:minInclusive value="0" />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="numberSources">
+  	<xs:simpleType>
+      <xs:restriction base="xs:integer">
+        <xs:minInclusive value="0" />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="numberBooks">
+  	<xs:simpleType>
+      <xs:restriction base="xs:integer">
+        <xs:minInclusive value="0" />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="title_stats" type="xs:string"/>
+</xs:schema>

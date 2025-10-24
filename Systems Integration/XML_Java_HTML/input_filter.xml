@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalog>
+    <researchers id="1">
+        <name>Marco Vieira</name>
+        <area>Informatics Engineering</area>
+        <affiliation>CISUC</affiliation>
+        <affiliation>University of Coimbra</affiliation>
+        <research_interests>
+            <interest>Dependability</interest>
+            <interest>Dependable Computing</interest>
+            <interest>Software Reliability</interest>
+            <interest>Software Security</interest>
+            <interest>Benchmarking</interest>
+        </research_interests>
+        <email>mvieira@dei.uc.pt</email>
+        <number_articles>364</number_articles>
+        <publications id="1">
+            <title>Mapping software faults with web security vulnerabilities</title>
+            <date>2008</date>
+            <citation>99</citation>
+            <co_authors>
+                <author>Jose Fonseca</author>
+            </co_authors>
+            <publication_source>
+                <conference>2008 IEEE international conference on dependable systems and networks With FTCS and DCC (DSN)</conference>
+                <pag_min>257</pag_min>
+                <pag_max>266</pag_max>
+            </publication_source>
+            <publisher>IEEE</publisher>
+            <description>Web applications are typically developed with hard time constraints and are often deployed with critical software bugs, making them vulnerable to attacks. The classification and knowledge of the typical software bugs that lead to security vulnerabilities is of utmost importance. This paper presents a field study analyzing 655 security patches of six widely used web applications. Results are compared against other field studies on general software faults (i.e., faults not specifically related to security),showing that only a small subset of software fault types is related to security. Furthermore, the detailed analysis of the code of the patches has shown that web application vulnerabilities result from software bugs affecting a restricted collection of statements. A detailed analysis of the conditions/locations where each fault was observed in our field study is presented allowing future definition of realistic fault models that cause security vulnerabilities in web applications, which is the key element to design a realistic attack injector.</description>
+        </publications>
+        <publications id="2">
+            <title>Evaluating computer intrusion detection systems: A survey of common practices</title>
+            <date>2015</date>
+            <citation>249</citation>
+            <co_authors>
+                <author>Aleksandar Milenkoski</author>
+                <author>Samuel Kounev</author>
+                <author>Alberto Avritzer</author>
+                <author>Bryan D Payne</author>
+            </co_authors>
+            <publication_source>
+                <source>ACM Computing Surveys (CSUR)</source>
+                <volume>48</volume>
+                <issue>1</issue>
+                <pag_min>1</pag_min>
+                <pag_max>41</pag_max>
+            </publication_source>
+            <publisher>ACM</publisher>
+            <description>The evaluation of computer intrusion detection systems (which we refer to as intrusion detection systems) is an active research area. In this article, we survey and systematize common practices in the area of evaluation of such systems. For this purpose, we define a design space structured into three parts: workload, metrics, and measurement methodology. We then provide an overview of the common practices in evaluation of intrusion detection systems by surveying evaluation approaches and methods related to each part of the design space. Finally, we discuss open issues and challenges focusing on evaluation methodologies for novel intrusion detection systems.</description>
+        </publications>
+        <publications id="3">
+            <title>Using web security scanners to detect vulnerabilities in web services</title>
+            <date>2009</date>
+            <citation>221</citation>
+            <co_authors>
+                <author>Nuno Antunes</author>
+                <author>Henrique Madeira</author>
+            </co_authors>
+            <publication_source>
+                <conference>2009 IEEE/IFIP International Conference on Dependable Systems and Networks</conference>
+                <pag_min>566</pag_min>
+                <pag_max>571</pag_max>
+            </publication_source>
+            <publisher>IEEE</publisher>
+            <description>Although Web services are becoming business-critical components, they are often deployed with critical software bugs that can be maliciously explored. Web vulnerability scanners allow detecting security vulnerabilities in Web services by stressing the service from the point of view of an attacker. However, research and practice show that different scanners have different performance on vulnerabilities detection. In this paper we present an experimental evaluation of security vulnerabilities in 300 publicly available Web services. Four well known vulnerability scanners have been used to identify security flaws in Web services implementations. A large number of vulnerabilities has been observed, which confirms that many services are deployed without proper security testing. Additionally, the differences in the vulnerabilities detected and the high number of false-positives (35% and 40% in two cases) and low coverage (less than 20% for two of the scanners) observed highlight the limitations of Web vulnerability scanners on detecting security vulnerabilities in Web services.</description>
+        </publications>
+        <publications id="4">
+            <title>On the emulation of software faults by software fault injection</title>
+            <date>2000</date>
+            <citation>216</citation>
+            <co_authors>
+                <author>Henrique Madeira</author>
+                <author>Diamantino Costa</author>
+            </co_authors>
+            <publication_source>
+                <conference>Proceeding International Conference on Dependable Systems and Networks. DSN 2000</conference>
+                <pag_min>417</pag_min>
+                <pag_max>426</pag_max>
+            </publication_source>
+            <publisher>IEEE</publisher>
+            <description>This paper presents an experimental study on the emulation of software faults by fault injection. In a first experiment, a set of real software faults has been compared with faults injected by a SWIFI tool (Xception) to evaluate the accuracy of the injected faults. Results revealed the limitations of Xception (and other SWIFI tools) in the emulation of different classes of software faults (about 44% of the software faults cannot be emulated). The use of field data about real faults was discussed and software metrics were suggested as an alternative to guide the injection process when field data is nor available. In a second experiment, a set of rules for the injection of errors meant to emulate classes of software faults was evaluated. The fault triggers used seem to be the cause for the observed strong impact of the faults in the target system and in the program results. The results also show the influence in the fault emulation of aspects such as code size, complexity of data structures, and recursive versus sequential execution.</description>
+        </publications>
+        <publications id="5">
+            <title>A data masking technique for data warehouses</title>
+            <date>2011</date>
+            <citation>36</citation>
+            <co_authors>
+                <author>Ricardo Jorge Santos</author>
+                <author>Jorge Bernardino</author>
+            </co_authors>
+            <publication_source>
+                <book>Proceedings of the 15th Symposium on International Database Engineering and Applications</book>
+                <pag_min>61</pag_min>
+                <pag_max>69</pag_max>
+            </publication_source>
+            <description>Data Warehouses (DWs) are the enterprise's most valuable asset in what concerns critical business information, making them an appealing target for attackers. Packaged database encryption solutions are considered the best solution to protect sensitive data. However, given the volume of data typically processed by DW queries, the existing encryption solutions heavily increase storage space and introduce very large overheads in query response time, due to decryption costs. In many cases, this performance degradation makes encryption unfeasible for use in DWs. In this paper we propose a transparent data masking solution for numerical values in DWs based on the mathematical modulus operator, which can be used without changing user application and DBMS source code. Our solution provides strong data securitywhile introducing small overheads in both storage space and database performance. Several experimental evaluations using the TPC-H decision support benchmark and a real-world DW are included. The results show the overall efficiency of our proposal, demonstrating that it is a valid alternative to existing standard encryption routines for enforcing data confidentiality in DWs.</description>
+        </publications>
+        <publications id="6">
+            <title>Designing vulnerability testing tools for web services: approach, components, and tools</title>
+            <date>2017</date>
+            <citation>34</citation>
+            <co_authors>
+                <author>Nuno Antunes</author>
+            </co_authors>
+            <publication_source>
+                <journal>International Journal of Information Security</journal>
+                <volume>16</volume>
+                <pag_min>435</pag_min>
+                <pag_max>457</pag_max>
+            </publication_source>
+            <publisher>Springer Berlin Heidelberg</publisher>
+            <description>This paper proposes a generic approach for designing vulnerability testing tools for web services, which includes the definition of the testing procedure and the tool components. Based on the proposed approach, we present the design of three innovative testing tools that implement three complementary techniques (improved penetration testing, attack signatures and interface monitoring, and runtime anomaly  detection) for detecting injection vulnerabilities, thus offering an extensive support for different scenarios.  A case study has been designed to demonstrate the tools for the particular case of SQL Injection vulnerabilities. The experimental evaluation demonstrates that the tools can effectively be used in different scenarios and that they  outperform well-known commercial tools by achieving higher detection coverage and lower false-positive rates.</description>
+        </publications>
+        <publications id="7">
+            <title>A survey on data security in data warehousing: Issues, challenges and opportunities</title>
+            <date>2011</date>
+            <citation>32</citation>
+            <co_authors>
+                <author>Ricardo Jorge Santos</author>
+                <author>Jorge Bernardino</author>
+            </co_authors>
+            <publication_source>
+                <source>2011 IEEE EUROCON-International Conference on Computer as a Tool</source>
+                <pag_min>1</pag_min>
+                <pag_max>4</pag_max>
+            </publication_source>
+            <publisher>IEEE</publisher>
+            <description>Data Warehouses (DWs) are the enterprise's most valuable assets in what concerns critical business information, making them an appealing target for malicious inside and outside attackers. Given the volume of data and the nature of DW queries, most of the existing data security solutions for databases are inefficient, consuming too many resources and introducing too much overhead in query response time, or resulting in too many false positive alarms (i.e., incorrect detection of attacks) to be checked. In this paper, we present a survey on currently available data security techniques, focusing on specific issues and requirements concerning their use in data warehousing environments. We also point out challenges and opportunities for future research work in this field.</description>
+        </publications>
+    </researchers>
+    <researchers id="11">
+        <name>Henrique Madeira</name>
+        <area>Software and Systems Engineering</area>
+        <affiliation>University of Coimbra</affiliation>
+        <affiliation>CISUC</affiliation>
+        <research_interests>
+            <interest>Dependable computing</interest>
+            <interest>fault injection</interest>
+            <interest>dependability benchmarking</interest>
+            <interest>biofeedback</interest>
+            <interest>human error</interest>
+        </research_interests>
+        <email>henrique@dei.uc.pt</email>
+        <number_articles>357</number_articles>
+        <publications id="1">
+            <title>Xception: A technique for the experimental evaluation of dependability in modern computers</title>
+            <date>1998</date>
+            <citation>578</citation>
+            <co_authors>
+                <author>Joao Carreira</author>
+                <author>Joao Gabriel Silva</author>
+            </co_authors>
+            <publication_source>
+                <journal>Software Engineering, IEEE Transactions on</journal>
+                <volume>24</volume>
+                <issue>2</issue>
+                <pag_min>125</pag_min>
+                <pag_max>136</pag_max>
+            </publication_source>
+            <publisher>IEEE</publisher>
+            <description>An important step in the development of dependable systems is the validation of their fault tolerance properties. Fault injection has been widely used for this purpose, however with the rapid increase in processor complexity, traditional techniques are also increasingly more difficult to apply. This paper presents a new software-implemented fault injection and monitoring environment, called Xception, which is targeted at modern and complex processors. Xception uses the advanced debugging and performance monitoring features existing in most modern processors to inject quite realistic faults by software, and to monitor the activation of the faults and their impact on the target system behavior in detail. Faults are injected with minimum interference with the target application. The target application is not modified, no software traps are inserted, and it is not necessary to execute the target application in special trace mode (the application is executed at full speed). Xception provides a comprehensive set of fault triggers, including spatial and temporal fault triggers, and triggers related to the manipulation of data in memory. Faults injected by Xception can affect any process running on the target system (including the kernel), and it is possible to inject faults in applications for which the source code is not available. Experimental, results are presented to demonstrate the accuracy and potential of Xception in the evaluation of the dependability properties of the complex computer systems available nowadays.</description>
+        </publications>
+        <publications id="2">
+            <title>Dependability benchmarking of web-servers</title>
+            <date>2004</date>
+            <citation>90</citation>
+            <co_authors>
+                <author>Joao Duraes</author>
+                <author>Marco Vieira</author>
+            </co_authors>
+            <publication_source>
+                <journal>Computer Safety, Reliability, and Security</journal>
+                <pag_min>297</pag_min>
+                <pag_max>310</pag_max>
+            </publication_source>
+            <publisher>Springer Berlin/Heidelberg</publisher>
+            <description>The assessment of the dependability properties of a system (dependability benchmarking) is a critical step when choosing among similar components/products. This paper presents a proposal for the benchmarking of the dependability properties of web-servers. Our benchmark is composed of the three key components: measures, workload, and faultload. We use the SPECWeb99 benchmark as starting point, adopting the workload and performance measures from this performance benchmark, and we added the faultload and new measures related to dependability. We illustrate the use of the proposed benchmark through a case-study involving two widely used web servers (Apache and Abyss) running on top of three different operating systems. The faultloads used encompass software faults, hardware faults and network faults. We show that by using the proposed dependability benchmark it is possible to observe clear differences regarding dependability properties of the web-servers.</description>
+        </publications>
+        <publications id="3">
+            <title>Analysis of field data on web security vulnerabilities</title>
+            <date>2014</date>
+            <citation>80</citation>
+            <co_authors>
+                <author>Marco Vieira</author>
+                <author></author>
+                <author>Jose Fonseca</author>
+                <author>Nuno Seixas</author>
+            </co_authors>
+            <publication_source>
+                <journal>IEEE Transactions on Dependable and Secure Computing</journal>
+                <volume>11</volume>
+                <issue>2</issue>
+                <pag_min>89</pag_min>
+                <pag_max>100</pag_max>
+            </publication_source>
+            <publisher>IEEE</publisher>
+            <description>Most web applications have critical bugs (faults) affecting their security, which makes them vulnerable to attacks by hackers and organized crime. To prevent these security problems from occurring it is of utmost importance to understand the typical software faults. This paper contributes to this body of knowledge by presenting a field study on two of the most widely spread and critical web application vulnerabilities: SQL Injection and XSS. It analyzes the source code of security patches of widely used Web applications written in weak and strong typed languages. Results show that only a small subset of software fault types, affecting a restricted collection of statements, is related to security. To understand how these vulnerabilities are really exploited by hackers, this paper also presents an analysis of the source code of the scripts used to attack them. The outcomes of this study can be used to train software developers and code inspectors in the detection of such faults and are also the foundation for the research of realistic vulnerability and attack injectors that can be used to assess security mechanisms, such as intrusion detection systems, vulnerability scanners, and static code analyzers.</description>
+        </publications>
+        <publications id="4">
+            <title>Verification and validation of (real time) COTS products using fault injection techniques</title>
+            <date>2007</date>
+            <citation>41</citation>
+            <co_authors>
+                <author>R Barbosa </author>
+                <author>N Silva</author>
+                <author>J Duraes</author>
+            </co_authors>
+            <publication_source>
+                <conference>Commercial-off-the-Shelf (COTS)-Based Software Systems, 2007. ICCBSS'07. Sixth International IEEE Conference on</conference>
+                <pag_min>233</pag_min>
+                <pag_max>242</pag_max>
+            </publication_source>
+            <publisher>IEEE</publisher>
+            <description>With the goal of reducing time to market and project costs, the current trend of real time business and mission critical systems is evolving from the development of custom made applications to the use of commercial off the shelf (COTS) products. Obviously, the same confidence and quality of the custom made software components is expected from the commercial applications. In most cases, such products (COTS) are not designed with stringent timing and/or safety requirements as priorities. Thus, to decrease the gap between the use of custom made components and COTS components, this paper presents a methodology for evaluating COTS products in the scope of dependable, real time systems, through the application of fault injection techniques at key points of the software engineering process. By combining the use of robustness testing (fault injection at interface level) with software fault injection (using educated fault injection operators), a COTS component can be assessed in the context of the system it will belong to, with special emphasis given to timing and safety constraints that are usually imposed by the target real time dependable environment. In the course of this work, three case studies have been performed to assess the methodology using realistic scenarios that used common COTS products. Results for one case study are presented</description>
+        </publications>
+        <publications id="5">
+            <title>On-line signature learning and checking</title>
+            <date>1992</date>
+            <citation>44</citation>
+            <co_authors>
+                <author>Joao G Silva</author>
+            </co_authors>
+            <publication_source>
+                <journal>Dependable Computing for Critical Applications, Springer-Verlag, JF and RD Schlichting (eds</journal>
+                <volume>6</volume>
+                <pag_min>395</pag_min>
+                <pag_max>420</pag_max>
+            </publication_source>
+            <description>This paper presents a new approach to concurrent error detection in multiple processor systems using on-line signature analysis. In this new technique, called On-line Signature Learning and Checking (OSLC), the block identification and the reference signature generation are performed at run time. Many hardware control signals are included in the signatures, which improves the error detection coverage, and the alterations and/or extensions in the compilers, assemblers and loaders are avoided. In OSLC the signatures are stored in the local memory of a watchdog processor, the Checker, which is based on a new principle that reduces the storage requirements of control flow information to less than 2% of the signature overhead. Furthermore, the Checker is very simple and can check several processors concurrently. A demonstration system of this technique has been designed and built. Results of fault injection experiments have shown that 99.4% of instruction type faults can be detected by OSLC with a very short latency (26 μSec). The coverage for general faults is 94.5% and the average latency is 464 sec.</description>
+        </publications>
+        <publications id="6">
+            <title>Approximate query answering using data warehouse striping</title>
+            <date>2002</date>
+            <citation>64</citation>
+            <co_authors>
+                <author>Jorge R Bernardino</author>
+                <author>Pedro S Furtado</author>
+            </co_authors>
+            <publication_source>
+                <journal>Journal of Intelligent Information Systems</journal>
+                <volume>19</volume>
+                <issue>2</issue>
+                <pag_min>145</pag_min>
+                <pag_max>167</pag_max>
+            </publication_source>
+            <publisher>Springer Netherlands</publisher>
+            <description>This paper presents and evaluates a simple but very effective method to implement large data warehouses on an arbitrary number of computers, achieving very high query execution performance and scalability. The data is distributed and processed in a potentially large number of autonomous computers using our technique called data warehouse striping (DWS). The major problem of DWS technique is that it would require a very expensive cluster of computers with fault tolerant capabilities to prevent a fault in a single computer to stop the whole system. In this paper, we propose a radically different approach to deal with the problem of the unavailability of one or more computers in the cluster, allowing the use of DWS with a very large number of inexpensive computers. The proposed approach is based on approximate query answering techniques that make it possible to deliver an approximate answer to the user even when one or more computers in the cluster are not available. The evaluation presented in the paper shows both analytically and experimentally that the approximate results obtained this way have a very small error that can be negligible in most of the cases.</description>
+        </publications>
+        <publications id="7">
+            <title>Effective Detection of SQL/XPath Injection Vulnerabilities in Web Services</title>
+            <date>2009</date>
+            <citation>108</citation>
+            <co_authors>
+                <author>Nuno Antunes</author>
+                <author>Nuno Laranjeiro</author>
+                <author>Marco Vieira</author>
+            </co_authors>
+            <publication_source>
+                <conference>Services Computing, 2009. SCC'09. IEEE International Conference on</conference>
+                <pag_min>260</pag_min>
+                <pag_max>267</pag_max>
+            </publication_source>
+            <publisher>IEEE</publisher>
+            <description>This paper proposes a new automatic approach for the detection of SQL Injection and XPath Injection vulnerabilities, two of the most common and most critical types of vulnerabilities in Web services. Although there are tools that allow testing Web applications against security vulnerabilities, previous research shows that the effectiveness of those tools in Web services environments is very poor. In our approach a representative workload is used to exercise the Web service and a large set of SQL/XPath injection attacks are applied to disclose vulnerabilities. Vulnerabilities are detected by comparing the structure of the SQL/XPath commands issued in the presence of attacks to the ones previously learned when running the workload in the absence of attacks. Experimental evaluation shows that our approach performs much better than known tools (including commercial ones), achieving extremely high detection coverage while maintaining the false positives rate very low.</description>
+        </publications>
+    </researchers>
+</catalog>
