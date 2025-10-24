@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies&Series</title>
+    <style>
+        :root {
+            --blue: #2a4365;  
+            --gold: #f0c674; 
+            --light-blue: #5a7e91; 
+            --bg-color: #f7f7f7; 
+            --content-bg-color: #ffffff; 
+            --text-color: #333; 
+            --shadow: rgba(0, 0, 0, 0.1);  
+        }
+        
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: var(--blue);
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 10px;
+        }
+
+        pp {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: var(--light-blue);
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 1em;
+            line-height: 1.6;
+            color: var(--light-blue);
+            margin-top: 1px;
+        }
+
+        d {
+            font-size: 0.9em;
+            line-height: 1.6;
+            color: #999999; 
+            margin-top: 20px;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 10px 20px;
+        }
+
+        header .links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 14px;
+        }
+
+        header .links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Layout */
+        .main {
+            display: flex;
+            flex: 1;
+        }
+
+        .center_container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: var(--content-bg-color);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow);
+            padding: 30px;
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 200px;
+            background-color: #eaeaea;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            height: 140vh;
+        }
+
+        .sidebar h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #33475b;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .sidebar ul li:hover {
+            text-decoration: underline;
+            color: #2b3b4e;
+        }
+
+        /* Content */
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .content h2 {
+            font-size: 36px;
+            text-align: center;
+            color: #f39c12;
+        }
+
+        .separator {
+            border: none;
+            height: 1px;
+            background-color: #ddd;
+            margin: 10px 100px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="user-info">Hi, {{ user_name }}</div>
+        <div class="links">
+            <a href="{% url 'user_profile' %}?user={{ userID }}">Home</a>
+            <a href="{% url 'visualization' %}?user={{ userID }}">History</a>
+            <a href="{% url 'reviews' %}?user={{ userID }}">Reviews</a>
+        </div>
+    </header>
+
+    <div class="main">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3>Genre</h3>
+            <ul>
+                {% for genre in all_genre %}
+                <li onclick="filterBy('genre', '{{ genre.name }}')">{{ genre.name }}</li>
+                {% endfor %}
+            </ul>
+
+            <h3>Actor</h3>
+            <ul>
+                {% for actor in all_actors %}
+                <li onclick="filterBy('actor', '{{ actor.name }}')">{{ actor.name }}</li>
+                {% endfor %}
+            </ul>
+
+            <h3>Director</h3>
+            <ul>
+                {% for director in all_directors %}
+                <li onclick="filterBy('director', '{{ director.name }}')">{{ director.name }}</li>
+                {% endfor %}
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="center_container">
+            <div class="container">
+                <h1 >Your Reviews</h1>
+                {% if review_boolean %}
+                    {% for media in all_media %}
+                        <div class="media-item">                    
+                            <pp><strong>{{ media.title }}</strong> <d>({{ media.review_date }})</d></pp>
+                            <p>[{{ media.rating }}/5] <i>"{{ media.comment }}"</i></p>
+                            <div class="separator"></div>
+                        </div>
+                    {% endfor %}
+
+                {% else %}                 
+                    <h3><i>No reviews have been done</i></h3>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var userId = {{ userID }};
+
+        function filterBy(type, value) {
+            if (type === 'genre') {
+                window.location.href = `/brMedia/genres/${value}?user=${userId}`;
+            } 
+            else if (type === 'actor') {
+                window.location.href = `/brMedia/actors/${value}?user=${userId}`;
+            }
+            else if (type === 'director') {
+                window.location.href = `/brMedia/directors/${value}?user=${userId}`;
+            }
+        }
+    </script>
+</body>
+</html>

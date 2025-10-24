@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies&Series</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 10px 20px;
+        }
+
+        header .links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 14px;
+        }
+
+        header .links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Layout */
+        .main-container {
+            display: flex;
+            height: calc(100vh - 60px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 200px;
+            background-color: #eaeaea;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            height: 100vh;
+        }
+
+        .sidebar h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #33475b;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .sidebar ul li:hover {
+            text-decoration: underline;
+            color: #2b3b4e;
+        }
+
+        /* Content */
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .content h2 {
+            font-size: 38px;
+            text-align: center;
+            color: #f39c12;
+        }
+
+        .search-bar {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .search-bar button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #eaeaea;
+            color: black;
+            cursor: pointer;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-bar button:hover {
+            background-color: #357abd;
+        }
+
+
+        .search-bar input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .tabs button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #33475b;
+            color: white;
+            cursor: pointer;
+        }
+
+        .tabs button:hover {
+            background-color: #357abd;
+        }
+
+        .results {
+            margin-top: 30px;
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="user-info">Hi, {{ user_name }}</div>
+        <div class="links">
+            <a href="{% url 'user_profile' %}?user={{ userID }}">Home</a>
+            <a href="{% url 'visualization' %}?user={{ userID }}">History</a>
+            <a href="{% url 'reviews' %}?user={{ userID }}">Reviews</a>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3>Genre</h3>
+            <ul>
+                {% for genre in all_genre %}
+                <li onclick="filterBy('genre', '{{ genre.name }}')">{{ genre.name }}</li>
+                {% endfor %}
+            </ul>
+
+            <h3>Actor</h3>
+            <ul>
+                {% for actor in all_actors %}
+                <li onclick="filterBy('actor', '{{ actor.name }}')">{{ actor.name }}</li>
+                {% endfor %}
+            </ul>
+
+            <h3>Director</h3>
+            <ul>
+                {% for director in all_directors %}
+                <li onclick="filterBy('director', '{{ director.name }}')">{{ director.name }}</li>
+                {% endfor %}
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <h2>Movies&Series</h2>
+
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search for movies or series" onkeypress="if(event.key === 'Enter') search()">
+                <button onclick="search()">Search</button>
+            </div>
+
+            <div class="tabs">
+                <button onclick="showCategory('movies')">Movies</button>
+                <button onclick="showCategory('series')">Series</button>
+            </div>
+
+
+            <div class="results">
+                <p>Available movies/series will appear here</p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        var userId = {{ userID }};
+
+        function filterBy(type, value) {
+            if (type === 'genre') {
+                window.location.href = `/brMedia/genres/${value}?user=${userId}`;
+            } 
+            else if (type === 'actor') {
+                window.location.href = `/brMedia/actors/${value}?user=${userId}`;
+            }
+            else if (type === 'director') {
+                window.location.href = `/brMedia/directors/${value}?user=${userId}`;
+            }
+        }
+
+        function showCategory(category) {
+            if (category === 'movies') {
+                window.location.href = `/brMedia/films?user=${userId}`;
+            } 
+            else if (category === 'series') {
+                window.location.href = `/brMedia/series?user=${userId}`;
+            }
+        }
+
+        function search() {
+            const query = document.getElementById('search-input').value.trim();
+
+            // Log para verificar o valor digitado
+            console.log("User query:", query);
+
+            if (query) {
+                window.location.href = `/brMedia/search?query=${encodeURIComponent(query)}&user=${userId}`;
+            } else {
+                // Alerta caso a barra esteja vazia
+                alert('Please enter a movie or series title!');
+            } 
+        }
+
+    </script>
+</body>
+</html>

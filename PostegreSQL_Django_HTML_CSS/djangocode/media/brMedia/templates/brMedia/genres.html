@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ genre.name }} - Description</title>
+    <style>
+        :root {
+            --blue: #2a4365; 
+            --gold: #f0c674; 
+            --light-blue: #5a7e91; 
+            --bg-color: #f7f7f7; 
+            --content-bg-color: #ffffff; 
+            --text-color: #333; 
+            --shadow: rgba(0, 0, 0, 0.1); 
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--bg-color); 
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0; 
+            z-index: 1000; 
+        }
+
+        header .user-info {
+            font-size: 16px;
+            color: white; 
+        }
+
+        header .links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 14px;
+        }
+
+        header .links a:hover {
+            text-decoration: underline;
+        }
+
+       .center_container {
+    		display: flex;
+    		justify-content: center;
+    		align-items: center;
+    		height: 90vh; 
+		}
+
+		.container {
+   			background-color: var(--content-bg-color);
+    		border-radius: 12px;
+    		box-shadow: 0 4px 15px var(--shadow);
+    		padding: 30px;
+    		width: 80%;
+   			max-width: 800px;
+    	 	text-align: center;
+    		transition: transform 0.3s ease-in-out;
+		}
+
+        h1 {
+            font-size: 2.5em;
+            color: var(--blue);
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: var(--light-blue);
+            margin-top: 20px;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 1em;
+            color: var(--blue);
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .user-info {
+            color: var(--light-blue);
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="user-info">Hi, {{ user_name }}</div>
+        <div class="links">
+            <a href="{% url 'user_profile' %}?user={{ userID }}">Home</a>
+            <a href="{% url 'visualization' %}?user={{ userID }}">History</a>
+            <a href="{% url 'reviews' %}?user={{ userID }}">Reviews</a>
+        </div>
+    </header>
+    <div class="center_container">
+    	<div class="container">
+        	<h1>{{ genre.name }}</h1>
+
+        	{% if genre %}
+            	<p>{{ genre.description }}</p>
+                 {% if genre.media_genre.all %}
+                    <p><strong>Example:</strong> 
+                    {% for media in genre.media_genre.all %}
+                        {{ media.title }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                    </p>
+                {% endif %}
+        	{% endif %}
+    </div>
+</body>
+</html>

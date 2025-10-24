@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies&Series</title>
+    <style>
+        :root {
+            --blue: #2a4365;  
+            --gold: #f0c674; 
+            --light-blue: #5a7e91; 
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 10px 20px;
+        }
+
+        header .links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 14px;
+        }
+
+        header .links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Layout */
+        .main-container {
+            display: flex;
+            height: calc(100vh - 60px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 200px;
+            background-color: #eaeaea;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            height: 170vh;
+        }
+
+        .sidebar h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #33475b;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .sidebar ul li:hover {
+            text-decoration: underline;
+            color: #2b3b4e;
+        }
+
+        /* formatacao da lista dos filmes/series */
+        .clickable-link {
+            color: black; 
+            text-decoration: none; 
+            cursor: pointer; 
+            font-size: 20px;
+        }
+        .clickable-link:hover {
+            color: var(--light-blue);
+            text-decoration: underline; 
+        }
+        .film-item {
+            margin-bottom: 15px; 
+        }
+        .serie-item {
+            margin-bottom: 15px; 
+        }
+
+        /* Content */
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .content h1 {
+            font-size: 33px;
+            color: var(--blue);
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 10px;
+        }
+
+        .content p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: black;
+            margin-top: 1px;
+            margin-bottom: 1px;
+        }
+
+        .content h2 {
+            font-size: 38px;
+            text-align: center;
+            color: #f39c12;
+        }
+
+        .content h4 {
+            margin-top: 19px;
+            margin-bottom: 19px;
+            font-size: 28px;
+            color: var(--blue);
+        }
+
+        .search-bar {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .search-bar button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #eaeaea;
+            color: black;
+            cursor: pointer;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-bar button:hover {
+            background-color: #357abd;
+        }
+
+        .search-bar input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .tabs button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #33475b;
+            color: white;
+            cursor: pointer;
+        }
+
+        .tabs button:hover {
+            background-color: #357abd;
+        }
+
+        /* separador entre filme/serie e reviews */
+        .separator {
+            border: none;
+            height: 1px;
+            background-color: #ddd;
+            margin: 20px 0;
+        }
+        /* formatacao da review */
+        .media-reviews {
+            display: flex;
+            flex-direction: column;  
+            align-items: flex-start;  
+            padding-left: 30px;  
+        }
+        .review-item {
+            margin-bottom: 1px; 
+            margin: 0;
+        }
+
+        .review-item p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: black;
+            margin-top: 1px;
+            margin-bottom: 1px;
+            text-align: left;
+        }
+
+        .review-item d {
+            color: #999999; 
+        }
+
+        .results {
+            margin-top: 30px;
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Modal para introduzir nova review */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            text-align: left;
+        }
+
+        .modal-content input,
+        .modal-content textarea {
+            width: 96%;
+            height: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .modal-content button {
+            padding: 7px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .modal-content .review-btn {
+            margin: 5px;
+            font-size: 13px;
+            text-align: left;
+            justify-content: flex-start;
+            background-color: #ddd;
+            color: black;
+        }
+        .modal-content .submit-btn {
+            background-color: var(--blue);
+            color: white;
+        }
+
+        .modal-content .cancel-btn {
+            background-color: #ccc;
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="user-info">Hi, {{ user_name }}</div>
+        <div class="links">
+            <a href="{% url 'user_profile' %}?user={{ userID }}">Home</a>
+            <a href="{% url 'visualization' %}?user={{ userID }}">History</a>
+            <a href="{% url 'reviews' %}?user={{ userID }}">Reviews</a>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3>Genre</h3>
+            <ul>
+                {% for genre in all_genre %}
+                <li onclick="filterBy('genre', '{{ genre.name }}')">{{ genre.name }}</li>
+                {% endfor %}
+            </ul>
+
+            <h3>Actor</h3>
+            <ul>
+                {% for actor in all_actors %}
+                <li onclick="filterBy('actor', '{{ actor.name }}')">{{ actor.name }}</li>
+                {% endfor %}
+            </ul>
+
+            <h3>Director</h3>
+            <ul>
+                {% for director in all_directors %}
+                <li onclick="filterBy('director', '{{ director.name }}')">{{ director.name }}</li>
+                {% endfor %}
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <h2>Movies&Series</h2>
+
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search for movies or series" onkeypress="if(event.key === 'Enter') search()">
+                <button onclick="search()">Search</button>
+            </div>
+
+            <div class="tabs">
+                <button onclick="showCategory('movies')">Movies</button>
+                <button onclick="showCategory('series')">Series</button>
+            </div>
+
+
+            <div class="results">
+                {% if not all_media %}
+                    <h3><i>No results found for your search<i></h3>
+                {% endif %}
+                {% for media in all_media %}
+                    {% if media.type == 'film' %}
+                        <div class="film-item">                    
+                            <span class="clickable-link" onclick="showMedia( 'film',
+                                '{{ media.title }}', 
+                                '{{ media.release_date}}',
+                                null,
+                                null,  
+                                '{{ media.duration }}',  
+                                '{{ media.actors }}',
+                                '{{ media.directors }}',
+                                '{{ media.genres }}',
+                                '{{ media.synopsis }}',
+                                '{{ media.reviews  }}'
+                            )">
+                                {{ media.title }}
+                            </span>
+                        </div>
+                    {% elif media.type == 'serie' %}
+                        <div class="serie-item">                    
+                            <span class="clickable-link" onclick="showMedia( 'serie',
+                                '{{ media.title }}', 
+                                '{{ media.release_date }}',  
+                                '{{ media.episodes }}', 
+                                '{{ media.seasons }}', 
+                                null,   
+                                '{{ media.actors }}',
+                                '{{ media.directors }}',
+                                '{{ media.genres }}',
+                                '{{ media.synopsis }}',
+                                '{{ media.reviews  }}'
+                            )">
+                                {{ media.title }}
+                            </span>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </main>
+    </div>
+
+    <script>
+        var userId = {{ userID }};
+
+        function filterBy(type, value) {
+            if (type === 'genre') {
+                window.location.href = `/brMedia/genres/${value}?user=${userId}`;
+            } 
+            else if (type === 'actor') {
+                window.location.href = `/brMedia/actors/${value}?user=${userId}`;
+            }
+            else if (type === 'director') {
+                window.location.href = `/brMedia/directors/${value}?user=${userId}`;
+            }
+        }
+
+        function showCategory(category) {
+            if (category === 'movies') {
+                window.location.href = `/brMedia/films?user=${userId}`;
+            } 
+            else if (category === 'series') {
+                window.location.href = `/brMedia/series?user=${userId}`;
+            }
+        }
+
+        function search() {
+            const query = document.getElementById('search-input').value.trim();
+
+            // Log para verificar o valor digitado
+            console.log("User query:", query);
+
+            if (query) {
+                window.location.href = `/brMedia/search?query=${encodeURIComponent(query)}&user=${userId}`;
+            } else {
+                // Alerta caso a barra esteja vazia
+                alert('Please enter a movie or series title!');
+            } 
+        }
+
+        function showMedia(typeMedia, title, release_date, episodes, seasons, duration, actors, directors, genres, synopsis, reviews) {
+            
+            const resultsDiv = document.querySelector('.results');
+            resultsDiv.innerHTML = '';
+
+            const actorList = actors.split(',');  
+            const directorList = directors.split(',');  
+            const genreList = genres.split(',');  
+
+            /* Converter reviews para um array */
+            let reviewsArray = [];
+            if (typeof reviews === 'string') {
+                try {
+                    reviewsArray = JSON.parse(reviews);
+                } catch (e) {
+                    console.error("Error", e);
+                }
+            } 
+
+            if (typeMedia === 'serie') {
+                resultsDiv.innerHTML = `
+                    <div class="media-details">
+                        <h1><strong> ${title}</strong></h1>
+                        <p><strong>Release Date:</strong> ${release_date}</p>
+                        <p><strong>Seasons:</strong> ${seasons}</p>
+                        <p><strong>Episodes:</strong> ${episodes}</p>
+
+                         <p><strong>Actors:</strong> 
+                            ${actorList.length > 0 ? actorList.join(', ') : 'No actors available.'}
+                        </p>
+
+                        <p><strong>Directors:</strong> 
+                            ${directorList.length > 0 ? directorList.join(', ') : 'No directors available.'}
+                        </p>
+                        
+                        <p><strong>Genres:</strong> 
+                            ${genreList.length > 0 ? genreList.join(', ') : 'No genres available.'}
+                        </p>
+                        <p><strong>Synopsis:</strong> ${synopsis}</p>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="media-reviews">
+                        <h4>Reviews</h4>
+                            ${reviewsArray.length > 0 ? reviewsArray.map(review => `
+                                <div class="review-item">
+                                    <p><strong>@${review.reviewer}</strong><d> (${review.review_date})</d></p>
+                                    <p>[${review.rating}/5] ${review.comment}</p>
+                                </div>
+                            `).join('') : '<p>No reviews available.</p>'}
+                    </div>
+                    <div class="modal-content">
+                        <button class="review-btn" onclick="openModal()">Add a Review</button>
+                    </div>
+                    <div class="separator"></div>
+
+                    <div class="modal" id="review-modal">
+                        <div class="modal-content">
+                            <h3>Write a Review</h3>
+                            <textarea id="review-comment" placeholder="Your Review"></textarea>
+                            <input type="number" id="review-rating" placeholder="Rating (1-5)" min="1" max="5">
+                            <button class="submit-btn" onclick="submitReview('${title}')">Submit</button>
+                            <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+                        </div>
+                    </div>
+                `;
+            } 
+            else if (typeMedia === 'film') {
+                resultsDiv.innerHTML = `
+                    <div class="media-details">
+                        <h1><strong> ${title}</strong></h1>
+                        <p><strong>Release Date:</strong> ${release_date || 'N/A'}</p>
+                        <p><strong>Duration:</strong> ${duration || 'N/A'}</p>
+
+                         <p><strong>Actors:</strong> 
+                            ${actorList.length > 0 ? actorList.join(', ') : 'No actors available.'}
+                        </p>
+
+                        <p><strong>Directors:</strong> 
+                            ${directorList.length > 0 ? directorList.join(', ') : 'No directors available.'}
+                        </p>
+                        
+                        <p><strong>Genres:</strong> 
+                            ${genreList.length > 0 ? genreList.join(', ') : 'No genres available.'}
+                        </p>
+                        <p><strong>Synopsis:</strong> ${synopsis || 'No synopsis available.'}</p>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="media-reviews">
+                        <h4>Reviews</h4>
+                        ${reviewsArray.length > 0 ? reviewsArray.map(review => `
+                                <div class="review-item">
+                                    <p><strong>@${review.reviewer}</strong><d> (${review.review_date})</d></p>
+                                    <p>[${review.rating}/5] ${review.comment}</p>
+                                </div>
+                            `).join('') : '<p>No reviews available.</p>'}
+                    </div>
+                    <div class="modal-content">
+                        <button class="review-btn" onclick="openModal()">Add a Review</button>
+                    </div>
+                    <div class="separator"></div>
+
+                    <div class="modal" id="review-modal">
+                        <div class="modal-content">
+                            <h3>Write a Review</h3>
+                            <textarea id="review-comment" placeholder="Your Review"></textarea>
+                            <input type="number" id="review-rating" placeholder="Rating (1-5)" min="1" max="5">
+                            <button class="submit-btn" onclick="submitReview('${title}')">Submit</button>
+                            <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+                        </div>
+                    </div>
+                `;
+            }
+
+        }
+
+        function openModal() {
+            document.getElementById('review-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('review-modal').style.display = 'none';
+        }
+
+        function submitReview(actual_title) {
+            const comment = document.getElementById('review-comment').value.trim();
+            const rating = document.getElementById('review-rating').value.trim();
+
+            if (!comment || !rating) {
+                alert("All fields are required!");
+                return;
+            }
+
+            const params = new URLSearchParams({
+                id: userId,
+                comment: comment,
+                rating: rating,
+                media_title: actual_title
+            });
+
+            // Redirecionar para a URL com os dados como parâmetros
+            window.location.href = `/brMedia/submit-review?${params.toString()}`;
+            closeModal()
+            alert("Review submitted!");
+        }
+    </script>
+</body>
+</html>

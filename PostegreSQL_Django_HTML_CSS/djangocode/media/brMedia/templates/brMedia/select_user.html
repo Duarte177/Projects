@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selection of a profile</title>
+    <style>
+        /* Reset básico */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #2c3e50, #34495e); /* Fundo escuro */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Elementos decorativos no fundo */
+        .background-decor {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .circle:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 20%;
+            animation-duration: 8s;
+        }
+
+        .circle:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            top: 50%;
+            left: 70%;
+            animation-duration: 6s;
+        }
+
+        .circle:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            top: 80%;
+            left: 10%;
+            animation-duration: 10s;
+        }
+        
+        .circle:nth-child(4) {
+            width: 170px;
+            height: 170px;
+            top: 10%;
+            left: 60%;
+            animation-duration: 9s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .container {
+            background: #2c3e50; /* Fundo escuro para a caixa */
+            color: #ecf0f1; /* Texto claro */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Sombras mais escuras */
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+        font-size: 28px;
+        color: #f39c12; /* Cor dourada para o título */
+        margin-bottom: 40px;
+        }
+        .welcome-text {
+            font-size: 36px;  /* Tamanho maior */
+            font-weight: bold; /* Negrito */
+        }
+        .select-text {
+        font-size: 20px;  /* Tamanho menor que o "Bem-vindo" */
+        }
+
+        .user-button-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .user-button {
+            background-color: #34495e; /* Cor dos botões mais escura */
+            border: 1px solid #95a5a6;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombras mais fortes */
+        }
+
+        .user-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4); /* Efeito de sombra mais intenso ao passar o mouse */
+        }
+
+        .user-button.selected {
+            border: 3px solid #f39c12; /* Cor dourada para seleção */
+            background-color: #f1c40f; /* Cor dourada para o botão selecionado */
+        }
+    </style>
+</head>
+<body>
+    <div class="background-decor">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+    <div class="container">
+        <h1><span class="welcome-text">Welcome to Movies&Series</span><br><span class="select-text">Select a User</span></h1>
+        <div class="user-button-container">
+            {% for person in users %}
+                <div class="user-button" data-id="{{ person.id }}" onclick="selectUser(this)">
+                    <p>{{ person.name }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        function selectUser(button) {
+            const selectedButton = document.querySelector('.user-button.selected');
+            if (selectedButton) {
+                selectedButton.classList.remove('selected');
+            }
+            button.classList.add('selected');
+
+            const userId = button.getAttribute('data-id');
+    
+            if (userId) {
+                window.location.href = `/brMedia/user_profile?user=${userId}`;
+            }
+        }
+    </script>
+</body>
+</html>

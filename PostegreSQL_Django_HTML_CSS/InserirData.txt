@@ -1,0 +1,211 @@
+INSERT INTO "brMedia_actor" (id, name, birth_date, nationality) VALUES
+(1, 'Leonardo DiCaprio', '1974-11-11', 'American'),
+(2, 'Clinton Eastwood Jr.', '1930-05-31', 'American'),
+(3, 'Aaron Paul', '1979-08-27', 'American'),
+(4,'Matthew McConaughey', ' 1969-11-4','American'),
+(5, 'Jessica Chastain','1977-03-24','American'),
+(6,'Anne Hathaway','1982-11-12','American'),
+(7,'Timothée Chalamet','1995-12-27','American'),
+(8, 'Emilia Clarke', '1986-10-23', 'British'),
+(9, 'Kit Harington', '1986-12-26', 'British'),
+(10, 'Peter Dinklage', '1969-06-11', 'American'),
+(11, 'Lena Headey', '1973-10-03', 'British'),
+(12, 'Wentworth Miller', '1972-06-02', 'American'),
+(13, 'Dominic Purcell', '1970-02-17', 'Australian'),
+(14, 'Sarah Wayne Callies', '1977-06-01', 'American'),
+(15, 'Robert Knepper', '1959-07-08', 'American'),
+(16, 'Christian Bale', '1974-01-30', 'British'),
+(17, 'Heath Ledger', '1979-04-04', 'Australian'),
+(18, 'Aaron Eckhart', '1968-03-12', 'American'),
+(19, 'Maggie Gyllenhaal', '1977-11-16', 'American'),
+(20, 'Tim Robbins', '1958-10-16', 'American'),
+(21, 'Morgan Freeman', '1937-06-01', 'American'),
+(22, 'Bob Gunton', '1945-11-15', 'American'),
+(23, 'William Sadler', '1950-04-13', 'American'),
+(24, 'Henry Cavill', '1983-05-05', 'British'),
+(25, 'Anya Chalotra', '1996-07-21', 'British'),
+(26, 'Freya Allan', '2001-09-06', 'British'),
+(27, 'Joey Batey', '1989-09-01', 'British'),
+(28, 'Jared Harris', '1961-08-24', 'British'),
+(29, 'Stellan Skarsgård', '1951-06-13', 'Swedish'),
+(30, 'Emily Watson', '1967-01-14', 'British'),
+(31, 'Paul Ritter', '1966-12-05', 'British');
+
+INSERT INTO "brMedia_director"(id,name,birth_date,nationality) VALUES
+(1, 'Christopher Nolan', '1970-07-30', 'British'),
+(2,'Sergio Leone','1929-01-03','Italian'),
+(3,'George Vincent Gilligan Jr.','1967-02-10','American'),
+(4, 'David Benioff', '1970-09-25', 'American'),
+(5, 'D.B. Weiss', '1971-04-23', 'American'),
+(6, 'Miguel Sapochnik', '1974-10-01', 'British'),
+(7, 'Jeremy Podeswa', '1962-12-28', 'Canadian'),
+(8, 'Mikael Håfström', '1960-03-01', 'Swedish'),
+(9, 'Kevin Hooks', '1958-04-19', 'American'),
+(10, 'Tori Garrett', '1977-07-28', 'Australian'),
+(11, 'Vince Misiano', '1960-12-05', 'American'),
+(12, 'Frank Darabont', '1959-01-28', 'American'),
+(13, 'Alik Sakharov', '1964-07-19', 'Ukrainian-American'),
+(14, 'Lauren Schmidt Hissrich', '1974-06-08', 'American'),
+(15, 'Johan Renck', '1966-12-05', 'Swedish');
+
+
+INSERT INTO "brMedia_genre"(id,name,description) VALUES
+(1,'Action','Action is a genre focused on high-energy sequences, including fights, chases, and explosions, often driven by conflict and physical challenges.'),
+(2,'Western','A Western is a genre set in the American Old West, featuring cowboys, outlaws, and rugged landscapes, focusing on themes of justice and survival.'),
+(3,'Drama','Drama is a genre that explores emotional, realistic stories with complex characters and intense conflicts.'),
+(4,'Science Fiction', 'Science fiction is a genre of speculative fiction that explores imaginative and futuristic concepts, often grounded in science, technology, and the natural world. It examines the impact of advancements or phenomena on individuals, societies, and the universe.' ),
+(5,'Adventure','Adventure is a genre characterized by exciting, dynamic, and often risky journeys or quests. It focuses on exploration, action, and overcoming obstacles, transporting the audience to extraordinary settings or situations filled with danger and discovery.'),
+(6, 'Fantasy', 'A genre that involves magic, imaginary worlds, and supernatural creatures. Often set in epic fantasy universes'),
+(7, 'Crime', 'A genre focused on the investigation and resolution of criminal acts, often involving law enforcement or criminals. '),
+(8, 'Thriller', 'A genre characterized by suspense, tension, and excitement, often involving high-stakes situations.'),
+(9, 'Historical', 'A genre that depicts past events, often aiming for accuracy and educational value.');
+
+
+INSERT INTO "brMedia_media"(id,title,media_type,release_date,synopsis) VALUES
+(1,'Inception','film','2010-07-16',
+'Inception follows Dom Cobb, a skilled thief who specializes in extracting secrets from within dreams. Given a chance to erase his criminal past, Cobb is tasked with performing the impossible: inception, planting an idea in someone’s mind through shared dreaming. As his team dives deeper into the targets subconscious, they face dangerous challenges and unraveling realities, blurring the line between dreams and reality.'
+),
+(2,'The Good, the Bad and the Ugly','film','1969-01-23','The Good, the Bad and the Ugly follows three gunmen—Blondie (the Good), Tuco (the Ugly), and Angel Eyes (the Bad)—as they search for a hidden cache of Confederate gold during the American Civil War. They form uneasy alliances and face deadly showdowns, culminating in a tense Mexican standoff at a cemetery. The film is famous for its iconic duels, memorable score by Ennio Morricone, and exploration of moral ambiguity.'
+),
+(3,'Breaking Bad','serie','2008-01-20','Breaking Bad follows Walter White, a high school chemistry teacher turned methamphetamine manufacturer, as he enters the drug trade to secure his familys future after being diagnosed with cancer. As he partners with former student Jesse Pinkman, Walters descent into the criminal underworld leads to increasingly dangerous situations, altering his life and those around him. The series explores themes of morality, family, and power.'
+),
+(4,'Interstellar','film','2014-11-6','In Interstellar, ex-NASA pilot Cooper joins a mission to find a new home for humanity as Earth becomes uninhabitable. Traveling through a wormhole, the team explores distant planets near a massive black hole. Facing time dilation and emotional sacrifice, Cooper fights to save his family and humanity, uncovering profound truths about love, survival, and the universe.' ),
+(5,'Game of Thrones','serie','2011-04-17','Game of Thrones is a fantasy drama set in the continents of Westeros and Essos. The story follows noble families, primarily the Starks, Lannisters, and Targaryens, as they vie for the Iron Throne. Central themes include power struggles, betrayal, and war. Meanwhile, supernatural forces like dragons and the undead grow in prominence. The series explores the complexity of politics, family, and survival, with shifting alliances and numerous character arcs that evolve throughout its eight seasons.'),
+(6, 'Prison Break', 'serie', '2005-08-29', 'A man deliberately gets himself sent to prison to break his brother out, who has been wrongfully convicted of a crime. The show follows their journey and the challenges they face inside and outside the prison.'),
+(7, 'The Dark Knight', 'film', '2008-07-18', 'Batman faces the Joker, a criminal mastermind who seeks to create chaos in Gotham City. A gripping tale of heroism and sacrifice, featuring iconic performances and action.'),
+(8, 'The Shawshank Redemption', 'film', '1994-09-22', 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.'),
+(9, 'The Witcher', 'serie', '2019-12-20', 'Geralt of Rivia, a monster hunter, navigates a world full of political intrigue, dangerous creatures, and powerful magic while trying to find his place in a chaotic world.'),
+(10, 'Chernobyl', 'serie', '2019-05-06', 'A dramatization of the true story of the 1986 nuclear disaster in Chernobyl, showing the catastrophic events and the aftermath as experienced by those involved and affected.');
+
+INSERT into "brMedia_media_actors"(id,media_id,actor_id) VALUES
+(1,1,1),
+(2,2,2),
+(3,3,3),
+(4,4,4),
+(5,4,5),
+(6,4,6),
+(7,4,7),
+(8,5,8),
+(9,5,9),
+(10,5,10),
+(11,5,11),
+(12,6,12),
+(13,6,13),
+(14,6,14),
+(15,6,15),
+(16,7,16),
+(17,7,17),
+(18,7,18),
+(19,7,19),
+(20,8,20),
+(21,8,21),
+(22,8,22),
+(23,8,23),
+(24,9,24),
+(25,9,25),
+(26,9,26),
+(27,9,27),
+(28,10,28),
+(29,10,29),
+(30,10,30),
+(31,10,31);
+
+
+INSERT INTO "brMedia_media_directors"(id,media_id,director_id) VALUES
+(1,1,1),
+(2,2,2),
+(3,3,3),
+(4,4,1),
+(5,5,4),
+(6,5,5),
+(7,5,6),
+(8,5,7),
+(9,6,8),
+(10,6,9),
+(11,6,10),
+(12,6,11),
+(13,7,1),
+(14,8,12),
+(15,9,13),
+(16,9,14),
+(17,10,15);
+
+
+
+INSERT INTO "brMedia_media_genre"(id,media_id,genre_id) VALUES
+(1,1,1),
+(2,2,2),
+(3,3,3),
+(4,4,3),
+(5,4,4),
+(6,4,5),
+(7,5,1),
+(8,5,3),
+(9,5,6),
+(10,5,5),
+(11,6,1),
+(12,6,3),
+(13,6,8),
+(14,6,7),
+(15,7,1),
+(16,7,7),
+(17,7,8),
+(18,8,3),
+(19,8,7),
+(20,9,6),
+(21,9,1),
+(22,9,5),
+(23,10,9),
+(24,10,8),
+(25,10,3)
+
+INSERT INTO "brMedia_person"(id,name,email,password) VALUES
+(1,'Duarte','duarte1454@gmail.com','pass123'),
+(2,'Cristiana','cris123@gmail.com','password987')
+
+INSERT INTO "brMedia_review"(id,rev_date,rating,comment,media_id,person_id) VALUES
+ (1,'2024-12-15',5,'Amazing movie!',1,1),
+ (2,'2023-10-24',4,'I loved this movie!',2,2),
+ (3,'2024-06-16',5,'Best series ever!',3,1),
+(4,'2023-01-15',5,'I loved it!',4,2),
+(5,'2020-05-20',3,'I stopped wathcing on season 3. Too much violence!',5,2),
+(6,'2021-02-20',5,'It is my favourite series ever!',6,1),
+(7, '2025-01-03', 5, 'An absolutely thrilling experience! The action and suspense in The Dark Knight are unmatched. Heath Ledgers performance as the Joker is legendary.', 7, 1),
+(8, '2025-01-02', 4, 'A beautifully written drama with outstanding performances. "The Shawshank Redemption" offers a poignant message of hope and redemption.', 8, 1),
+(9, '2025-01-01', 5, 'One of the best fantasy series out there! "The Witcher" combines incredible action, a captivating story, and unforgettable characters.', 9, 2),
+(10, '2025-01-05', 4, 'A gripping portrayal of a historical tragedy. "Chernobyl" provides an intense and haunting look at the events surrounding the nuclear disaster.', 10, 2);
+
+
+INSERT INTO "brMedia_visualization"(id,view_date,media_id,person_id) VALUES
+(1,'2024-12-10',1,1),
+(2,'2023-10-22',2,2),
+(3,'2024-06-10',3,1),
+(4,'2023-06-07',4,2),
+(5,'2022-03-12',5,2),
+(6,'2021-01-15',6,1),
+(7, '2024-12-23', 7, 1),
+(8, '2024-11-03', 8, 1),
+(9, '2024-12-20', 9, 2),
+(10, '2024-12-11', 10, 2);
+
+INSERT INTO "brMedia_film" (media_ptr_id,duration) VALUES
+(1,'147 minutes'),
+(2,'172 minutes'),
+(4,'169 minutes'),
+(7, '152 minutes'), 
+(8, '142 minutes');
+
+INSERT INTO "brMedia_series" (media_ptr_id,seasons,episodes) VALUES
+(3,5,62),
+(5,8,73),
+(6,5,90),
+(9, 1, 8),
+(10, 1, 5);
+
+
+
+
+
+
+
+
